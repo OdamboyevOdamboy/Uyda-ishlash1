@@ -33,7 +33,7 @@ function App() {
               <td>{e.direction}</td>
               <td>{e.course}</td>
               <td>{e.balance}</td>
-              <td className={e.balance>100000 ? 'gr' : 'rd'}>Aktive</td>
+              <td className={e.balance>100000 ? 'gr' : 'rd'}>{e.balance>100000 ? 'Aktiv' : 'Arxiv'}</td>
               <td>
                 <Link to={`/group/${e.id}`}>Profilga o'tish</Link>
               </td>

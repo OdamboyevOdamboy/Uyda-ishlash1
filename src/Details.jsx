@@ -4,18 +4,9 @@ import facts from './Facts';
 const Details = () => {
   const { name } = useParams();
   let sub = facts.find((e) => e.id == name);
-  let tx = [
-    'Telefon raqam:',
-    `${sub.phone}`,
-    `Yo'nalish:`,
-    `${sub.direction}`,
-    'Guruh:',
-    `${sub.group}`,
-    'Kurslar:',
-    `${sub.course}`,
-    'Status:',
-    `Aktive`
-  ];
+  let tx = [{ tb: 'Telefon raqam:' }, { name: `${sub.phone}` }, { tb: `Yo'nalish:` }, { name: `${sub.direction}` }, { tb: 'Guruh:' }, { name: `${sub.group}` }, { tb: 'Kurslar:' }, { name: `${sub.course}` }, { tb: 'Status:' }, { name: `${sub.status}` }];
+  // let tx1=[``,``,``,``,``]
+  // let tx1=[{name:`${sub.phone}`},{name:`${sub.direction}`},{name:`${sub.group}`},{name:`${sub.course}`},{name:`${sub.status}`}];
   return (
     <>
       <div className="wf">
@@ -39,7 +30,8 @@ const Details = () => {
           <div className="md">
             {tx.map((e, i) => (
               <div key={i}>
-                <div>{e}</div>
+                <div>{e.tb}</div>
+                <div>{e.name}</div>
               </div>
             ))}
           </div>
