@@ -4,7 +4,13 @@ import facts from './Facts';
 const Details = () => {
   const { name } = useParams();
   let sub = facts.find((e) => e.id == name);
-  let tx = [{ tb: 'Telefon raqam:' }, { name: `${sub.phone}` }, { tb: `Yo'nalish:` }, { name: `${sub.direction}` }, { tb: 'Guruh:' }, { name: `${sub.group}` }, { tb: 'Kurslar:' }, { name: `${sub.course}` }, { tb: 'Status:' }, { name: `${sub.status}` }];
+  let tx = [
+    { tb: 'Telefon raqam:', name: `${sub.phone}` },
+    { tb: `Yo'nalish:`, name: `${sub.direction}` },
+    { tb: 'Guruh:', name: `${sub.group}` },
+    { tb: 'Kurslar:', name: `${sub.course}` },
+    { tb: 'Status:', name: `${sub.balance>100000 ? 'Aktiv' : 'Arxiv'}` },
+  ];
   // let tx1=[``,``,``,``,``]
   // let tx1=[{name:`${sub.phone}`},{name:`${sub.direction}`},{name:`${sub.group}`},{name:`${sub.course}`},{name:`${sub.status}`}];
   return (
@@ -29,9 +35,9 @@ const Details = () => {
           </div>
           <div className="md">
             {tx.map((e, i) => (
-              <div key={i}>
-                <div>{e.tb}</div>
-                <div>{e.name}</div>
+              <div key={i} className="lf">
+                <div className="fm">{e.tb}</div>
+                <div className="fm1"><span className={sub.balance>100000 ? 'act':'arx'}>{e.name}</span></div>
               </div>
             ))}
           </div>
