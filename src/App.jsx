@@ -16,7 +16,7 @@ function App() {
   return (
     <>
       <table className="bs">
-        <thead className='bs1'>
+        <thead>
           <tr className="bt">
             {string.map((e, i) => (
               <th key={i}>{e}</th>
@@ -44,5 +44,4 @@ function App() {
     </>
   );
 }
-
 export default App;

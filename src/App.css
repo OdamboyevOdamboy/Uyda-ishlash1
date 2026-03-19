@@ -2,7 +2,7 @@
   width: 100%;
   height: 100%;
   text-align: center;
-  font-size: clamp(10px, 5vmin, 20px);
+  font-size: clamp(10px, 5vw, 1.7vw);
 }
 a {
   text-decoration: none;
@@ -13,9 +13,6 @@ a:hover {
 }
 table {
   border-collapse: collapse;
-}
-tr {
-  padding: 0 10px;
 }
 tr:hover {
   background: rgba(255, 255, 255, 0.2);
@@ -42,19 +39,14 @@ tr:hover {
 .cp {
   padding: 3vmin 2vmin;
   width: 50vw;
-  height: 60%;
   overflow-x: hidden;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   padding: 1.5vw 2.3vw;
   scrollbar-width: 2px;
 }
-.cp::-webkit-scrollbar {
-  width: 8px;
-}
-.cp::-webkit-scrollbar-thumb {
-  background: blue;
-  border-radius: 10px;
+body::-webkit-scrollbar {
+  width: 0;
 }
 .fh {
   display: flex;
@@ -67,6 +59,7 @@ tr:hover {
   align-items: center;
 }
 .dm {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -74,10 +67,24 @@ tr:hover {
   height: 7vw;
   font-size: clamp(8px, 3.5vw, 50px);
   color: black;
-  border: 0.5vw solid blue;
   border-radius: 50%;
   background: white;
   transition: 0.8s;
+}
+.dm::after {
+  content: '';
+  position: absolute;
+  width: 7.8vw;
+  height: 7.8vw;
+  background: linear-gradient(45deg, blue, red);
+  border-radius: 50%;
+  z-index: -1;
+  animation: aff 2s linear infinite;
+}
+@keyframes aff {
+  100% {
+    transform: rotate(360deg);
+  }
 }
 .tx {
   font-weight: bold;
@@ -85,6 +92,7 @@ tr:hover {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  width: 70%;
 }
 .email {
   font-size: clamp(5px, 1.5vw, 15px);
@@ -92,68 +100,77 @@ tr:hover {
 }
 .md {
   margin-top: 10px;
+  display: flex;
 }
-.lf{
+.wy {
+  width: 50%;
+  transition: 0.8s;
+}
+.lf {
   margin-top: 20px;
 }
-.fm{
+.fm {
   color: rgb(175, 175, 175);
+  font-size: clamp(8px, 1.5vw, 17px);
 }
-.fm1{
+.fm1 {
   font-weight: bold;
   font-size: clamp(5px, 1.5vw, 17px);
 }
-.act{
+.act {
   padding: 3px;
   background: lime;
-  mix-blend-mode: screen;
+  color: rgb(222, 255, 222);
+  border-radius: 3px;
 }
-.arx{
+.arx {
   padding: 3px;
   background: red;
-  mix-blend-mode: screen;
+  color: rgb(255, 222, 222);
+  border-radius: 3px;
+}
+.fl {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.ws {
+  display: flex;
+  justify-content: end;
+  padding-top: 20px;
+  width: 100%;
+}
+.bbt {
+  padding: 1vw;
+  background: blue;
+  border: none;
+  border-radius: 8px;
+  font-size: clamp(5px, 1.5vw, 17px);
+  transition: 0.8s;
 }
 @media screen and (max-width: 100vmin) {
   .fh {
     width: 100%;
     align-items: center;
+    text-align: center;
     flex-direction: column;
   }
   .dm {
     width: 10vw;
     height: 10vw;
   }
+  .wy {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .ws {
+    justify-content: center;
+  }
+  .dm::after {
+    width: 11vw;
+    height: 11vw;
+  }
 }
-/* .dm{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: clamp(8px,3.5vw,50px);
-  color: black;
-  
-  border: 5px solid blue;
-  border-radius: 50%;
-  background: white;
-}
-.cw{
-  width: 60%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.tx{
-  font-weight: bold;
-  font-size: clamp(10px,2.5vw,300px);
-  display: flex;
-  flex-direction: column;
-}
-
-.fk{
-  width: 100%;
-}
-.du{
-  width: 50%;
-}
-.du1{
-  width: 50%;
-} */
