@@ -1,7 +1,11 @@
 import { Link } from 'react-router-dom';
 import './App.css';
 import facts from './Facts';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCard } from './products/productSlice';
 function App() {
+  const count = useSelector((state) => state.product.count);
+  const dispatch = useDispatch();
   const string = [
     '#',
     'ISM FAMILIYA',
@@ -15,6 +19,9 @@ function App() {
   ];
   return (
     <>
+    <h1>{count} </h1>
+    <button onClick={() => dispatch(addToCard())}>increment</button>
+    <Link to={"/product"}>Product</Link>
       <table className="bs">
         <thead>
           <tr className="bt">

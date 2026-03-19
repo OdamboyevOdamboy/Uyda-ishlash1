@@ -1,6 +1,7 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import App from "../App";
 import Details from "../Details";
+import Product from "../products/Product";
 export const route=createBrowserRouter([
   {
     path:'/',
@@ -13,5 +14,9 @@ export const route=createBrowserRouter([
   {
     path:'/group/:name',
     element:<Details/>,
+  }, 
+  {
+    path: "/product",
+    element: <Product/>
   }
 ])
